@@ -1,4 +1,7 @@
 import "./globals.css";
+import FriendItem from "./share-comps/FriendSection";
+import SidebarItem from "./share-comps/SidebarSection";
+import TabItem from "./share-comps/TabItem";
 
 export default function RootLayout({ children }) {
   return (
@@ -25,9 +28,46 @@ export default function RootLayout({ children }) {
               <div className="mb-4">
                 <h2 className="text-sm font-semibold text-gray-300">Channels</h2>
                 <div className="space-y-2">
-                  <div className="p-2"># general</div>
-                  <div className="p-2"># random</div>
+                <SidebarItem
+        icon="/friend.png"  // 아이콘 경로
+        label="친구"         // 라벨 텍스트
+        isActive={false}      // 활성 상태
+        href="/friends"      // 링크 경로
+      />
+      <SidebarItem
+        icon="/nitro.png"
+        label="Nitro"
+        isActive={false}
+        href="/nitro"
+      />
+      <SidebarItem
+        icon="/shop.png"
+        label="상점"
+        isActive={false}
+        href="/shop"
+      />
+                  
+
+
+
                   <div className="p-2"># music</div>
+                  <FriendItem
+        icon="/friend.png"
+        label="김성준"
+        isActive={false}
+      />
+                <FriendItem
+        icon="/friend.png"
+        label="유승한"
+        isActive={false}
+        
+      />
+                      <FriendItem
+        icon="/friend.png"
+        label="이소연"
+        isActive={false}
+        
+      />
                 </div>
               </div>
             </aside>
@@ -36,10 +76,10 @@ export default function RootLayout({ children }) {
 
             {/* Second Header */}
             <div className="h-12 flex items-center px-4 space-x-4 border-b border-black">
-              <h2 className="text-sm font-semibold text-gray-300">친구</h2>
-              <h2 className="text-sm font-semibold text-gray-300">온라인</h2>
-              <h2 className="text-sm font-semibold text-gray-300">모두</h2>
-              <h2 className="text-sm font-semibold text-gray-300">대기 중</h2>
+            <TabItem label="친구" isActive={false}  />
+            <TabItem label="온라인" isActive={false} />
+            <TabItem label="모두" isActive={false}  />
+            <TabItem label="대기 중" isActive={false} />
             </div>
 
             {/* Chat Area + Right Sidebar */}
