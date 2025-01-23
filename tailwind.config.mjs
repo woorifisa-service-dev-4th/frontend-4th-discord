@@ -8,8 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        discordDark: "#36393f",
+        discordGray: "#2f3136",
+        discordSidebar: "#202225",
+        discordAccent: "#5865f2",
       },
     },
   },
