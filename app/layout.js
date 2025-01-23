@@ -1,4 +1,8 @@
 import "./globals.css";
+import FriendItem from "@/components/share-comps/friendSection";
+import SidebarItem from "@/components/share-comps/SidebarSection";
+import TabItem from "@/components/share-comps/TabItem";
+import {SearchFrom} from "@/components/share-comps/SearchFrom";
 
 export default function RootLayout({ children }) {
   return (
@@ -21,13 +25,52 @@ export default function RootLayout({ children }) {
             </aside>
             {/* Chaneel List */}
             <aside className="w-60 bg-discordGray flex flex-col py-4 px-2">
+              <SearchFrom defaultValue={"대화 찾기 또는 시작하기"}/>
+
               {/* 채널 목록 */}
               <div className="mb-4">
                 <h2 className="text-sm font-semibold text-gray-300">Channels</h2>
                 <div className="space-y-2">
-                  <div className="p-2"># general</div>
-                  <div className="p-2"># random</div>
+                <SidebarItem
+        icon="/friend.png"  // 아이콘 경로
+        label="친구"         // 라벨 텍스트
+        isActive={false}      // 활성 상태
+        href="/friends"      // 링크 경로
+      />
+      <SidebarItem
+        icon="/nitro.png"
+        label="Nitro"
+        isActive={false}
+        href="/nitro"
+      />
+      <SidebarItem
+        icon="/shop.png"
+        label="상점"
+        isActive={false}
+        href="/shop"
+      />
+
+
+
+
                   <div className="p-2"># music</div>
+                  <FriendItem
+        icon="/friend.png"
+        label="김성준"
+        isActive={false}
+      />
+                <FriendItem
+        icon="/friend.png"
+        label="유승한"
+        isActive={false}
+
+      />
+                      <FriendItem
+        icon="/friend.png"
+        label="이소연"
+        isActive={false}
+
+      />
                 </div>
               </div>
             </aside>
@@ -36,22 +79,22 @@ export default function RootLayout({ children }) {
 
             {/* Second Header */}
             <div className="h-12 flex items-center px-4 space-x-4 border-b border-black">
-              <h2 className="text-sm font-semibold text-gray-300">친구</h2>
-              <h2 className="text-sm font-semibold text-gray-300">온라인</h2>
-              <h2 className="text-sm font-semibold text-gray-300">모두</h2>
-              <h2 className="text-sm font-semibold text-gray-300">대기 중</h2>
+            <TabItem label="친구" isActive={false}  />
+            <TabItem label="온라인" isActive={false} />
+            <TabItem label="모두" isActive={false}  />
+            <TabItem label="대기 중" isActive={false} />
             </div>
 
-            {/* Chat Area + Right Sidebar */}
-            <div className="flex flex-1">
-              {/* Chat Area  */}
-              <main className="flex-1 flex flex-col">
-                {/* Chat Message */}
-                <div className="flex-1 overflow-y-auto p-4">
-                  chat
-                </div>
-                <footer className="h-16 bg-discordGray flex items-center px-4">
-                  <input
+          {/* Chat Area + Right Sidebar */}
+          <div className="flex flex-1">
+            {/* Chat Area  */}
+            <main className="flex-1 flex flex-col">
+              {/* Chat Message */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <SearchFrom defaultValue={"검색하기"}/>
+              </div>
+              <footer className="h-16 bg-discordGray flex items-center px-4">
+                <input
                     type="text"
                     placeholder="chat placeholder"
                     className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
