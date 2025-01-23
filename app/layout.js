@@ -1,7 +1,8 @@
 import "./globals.css";
-import FriendItem from "./share-comps/FriendSection";
-import SidebarItem from "./share-comps/SidebarSection";
-import TabItem from "./share-comps/TabItem";
+import FriendItem from "@/components/share-comps/friendSection";
+import SidebarItem from "@/components/share-comps/SidebarSection";
+import TabItem from "@/components/share-comps/TabItem";
+import {SearchFrom} from "@/components/share-comps/SearchFrom";
 
 export default function RootLayout({ children }) {
   return (
