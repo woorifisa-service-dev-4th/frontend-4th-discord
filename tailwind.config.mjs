@@ -12,8 +12,9 @@ export default {
         discordGray: "#2f3136",
         discordSidebar: "#202225",
         discordAccent: "#5865f2",
+        discordGreen:"#22a559"
       },
-    },
   },
   plugins: [],
+}
 };
