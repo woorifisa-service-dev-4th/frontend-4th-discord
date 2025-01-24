@@ -1,24 +1,30 @@
 import Image from "next/image";
+import attach from "@/public/assets/attach-button.svg";
 
-export function MessageForm({defaultValue}) {
+export function MessageForm({name}) {
     return (
-        <div className={"relative top-0 pb-10 "}>
+        <div className={"flex items-center"}>
+            <button 
+                className={"flex items-center justify-center px-2 bg-[#383a40] py-2 focus:outline-none rounded-l-md"}
+                style={{ height: "40px" }}
+            >
+                <Image
+                    src={attach}
+                    alt=""
+                    width={24} 
+                    height={24} 
+                />
+            </button>
+            
             <input
-                className={"absolute bg-[#1e1f22] text-[#8f969f] w-full focus:outline-none"}
+                className={"bg-[#383a40] text-[#8f969f] w-full focus:outline-none rounded-r-md "}
+                style={{ height: "40px", paddingLeft: "12px" }} 
                 type="text"
                 name="search"
-                placeholder={`${defaultValue}에 메시지 보내기`}
+                placeholder={`@${name}에 메시지 보내기`}
             />
-
-            {/*<div className={"absolute mt-1 right-2"}>*/}
-            {/*    <Image*/}
-            {/*        // aria-hidden*/}
-            {/*        src="/attach-button.svg"*/}
-            {/*        alt="Attach button"*/}
-            {/*        width={16}*/}
-            {/*        height={16}*/}
-            {/*    />*/}
-            {/*</div>*/}
         </div>
+    
+
     );
 }

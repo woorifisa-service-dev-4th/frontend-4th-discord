@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        discordDark: "#36393f",
+        discordDark: "#313338",
         discordGray: "#2f3136",
         discordSidebar: "#202225",
         discordAccent: "#5865f2",
