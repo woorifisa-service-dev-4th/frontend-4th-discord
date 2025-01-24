@@ -1,14 +1,20 @@
-import { TurborepoAccessTraceResult } from "next/dist/build/turborepo-access-trace";
+'use client'
+
 import UserProfileCard from  "../../components/voice-channel-comps/UserProfileCard"
+import FooterControls from "../../components/voice-channel-comps/FooterControls";
+import { useState } from "react";
 
 export default function VoiceChannelPage() {
+  const [isStreaming, setIsStreaming] = useState(false); // 카메라 상태
+  const [isMuted, setIsMuted] = useState(true); // 마이크 상태
+
   const users = [
     {
       id: 1,
       username: "JohnDoe",
       avatarUrl: "https://i.pravatar.cc/150?img=1",
-      isMuted: false,
-      isStreaming : false,
+      isMuted: isMuted,
+      isStreaming : isStreaming,
     },
     {
       id: 2,
@@ -52,6 +58,18 @@ export default function VoiceChannelPage() {
             isStreaming={user.isStreaming}
           />
         ))}
+          <FooterControls
+            isStreaming={isStreaming}
+            isMuted={isMuted}
+            onToggleStreaming={() => {
+              setIsStreaming(!isStreaming)
+              console.log("isStreaming");
+            }} // 카메라 상태 변경
+            onToggleMuted={() => {setIsMuted(!isMuted); console.log(isMuted);
+            }} // 마이크 상태 변경
+            onDisconnect={() => alert("연결을 끊었습니다.")} // 연결 끊기
+          />
+          
       </div>
     </main>
   );
