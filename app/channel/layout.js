@@ -1,6 +1,9 @@
-import "../globals.css";
+'use client'
 
-export default function ChannelLayout({ children }) {
+import Sidebar from "@/components/channel-list-comps/SidebarChannel";
+import "../globals.css";
+export default function ChannelLayout({children}) {
+  
   return (
     <div className="flex flex-1">
       {/* Left Sidebar (Server List + Channel List) */}
@@ -14,14 +17,19 @@ export default function ChannelLayout({ children }) {
         <aside className="w-60 bg-discordGray flex flex-col py-4 px-2">
           {/* search form */}
           <div className="mb-4">
-            <h2 className="text-sm font-semibold text-gray-300">Channels</h2>
             <div className="space-y-2">
+              <Sidebar />
               {/* 채널 목록 */}
+              
+
             </div>
           </div>
         </aside>
       </div>
 
+
+
+      
       {/* Main Content */}
       <section className="flex flex-col w-full">
         {/* Second Header */}
