@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const DropdownMenu = ({ title, menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,25 +29,36 @@ const DropdownMenu = ({ title, menuItems }) => {
       >
         <span className="text-sm font-medium">{title}</span>
         <span className="ml-2 text-lg">
-          {isOpen ? '✖' : '▶'}
+          {isOpen ? (
+            '✖'
+          ) : (
+            <Image
+              src="/downarrow.png"
+              alt="Down Arrow"
+              width={16}
+              height={16}
+              style={{
+                filter: 'invert(1)', // 색상 반전
+              }}
+            />
+          )}
         </span>
       </div>
 
       {/* 드롭다운 메뉴 */}
       {isOpen && (
-        <div className="absolute top-full mt-2 w-64 bg-discordGray border border-gray-700 rounded-md shadow-lg z-50">
+        <div className="absolute top-full mt-2 w-56 bg-black border border-gray-700 rounded-md shadow-lg z-50">
           <ul className="text-sm text-gray-300">
             {menuItems.map((item, index) => (
               <li
                 key={index}
-                className={`flex items-center p-2 hover:bg-gray-700 ${
+                className={`flex items-center justify-between p-2 hover:bg-gray-700 ${
                   item.danger ? 'text-red-500' : ''
                 }`}
                 onClick={item.onClick}
               >
-                {item.label}
-                <span className="mr-2">{item.icon}</span>
-                
+                <span>{item.label}</span>
+                <span className="ml-auto">{item.icon}</span> {/* 아이콘 오른쪽 정렬 */}
               </li>
             ))}
           </ul>
