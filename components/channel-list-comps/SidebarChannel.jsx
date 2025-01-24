@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from "react";
+import Link from "next/link"; // next/link 임포트
 import DropdownMenu from "@/components/header-comps/Dropdown";
 import CollapsibleSection from "@/components/channel-list-comps/Channel";
 import ChannelItem from "./ChannelItem";
 import SidebarItem from "./SidebarSection";
 
 export default function Sidebar({ title }) {
-  const [selectedVoiceChannel, setSelectedVoiceChannel] = useState(null); // 선택된 음성 채널 상태
+  const [selectedVoiceChannel, setSelectedVoiceChannel] = useState(null);
 
   const menuItems = [
     { label: "서버 부스트", icon: "🔗", onClick: () => alert("서버 부스트 클릭") },
@@ -40,13 +41,11 @@ export default function Sidebar({ title }) {
         <CollapsibleSection title="채팅 채널">
           <ul className="space-y-2">
             {chatChannels.map((channel, index) => (
-              <button
+              <div
                 key={index}
-                className="group flex items-center justify-between p-2 w-full h-11 hover:bg-gray-700 rounded"
+                className="group flex items-center justify-between p-2 w-full h-11 hover:bg-gray-700 rounded cursor-pointer"
               >
-                {/* 채널 이름 */}
                 <ChannelItem name={channel} type="text" />
-                {/* 오른쪽 아이콘 */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                   <button
                     className="text-gray-400 hover:text-white"
@@ -58,7 +57,7 @@ export default function Sidebar({ title }) {
                     👤
                   </button>
                 </div>
-              </button>
+              </div>
             ))}
           </ul>
         </CollapsibleSection>
@@ -70,44 +69,44 @@ export default function Sidebar({ title }) {
           <ul className="space-y-2">
             {voiceChannels.map((channel, index) => (
               <div key={index}>
-                <button
-                  className="group flex items-center justify-between p-2 w-full h-11 hover:bg-gray-700 rounded"
-                  onClick={() =>
-                    setSelectedVoiceChannel((prev) =>
-                      prev === channel ? null : channel // 선택/해제
-                    )
-                  }
-                >
-                  {/* 채널 이름 */}
-                  <ChannelItem name={channel} type="voice" />
-                  {/* 오른쪽 아이콘 */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity flex space-x-2">
-                    <button
-                      className="text-gray-400 hover:text-white"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        alert(`Send message to ${channel}`);
-                      }}
-                    >
-                      💬
-                    </button>
-                    <button
-                      className="text-gray-400 hover:text-white"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        alert(`Invite to ${channel}`);
-                      }}
-                    >
-                      👤
-                    </button>
+                {/* Link를 사용하여 /voice-channel로 이동 */}
+                <Link href="/voice-channel">
+                  <div
+                    className="group flex items-center justify-between p-2 w-full h-11 hover:bg-gray-700 rounded cursor-pointer"
+                    onClick={() =>
+                      setSelectedVoiceChannel((prev) =>
+                        prev === channel ? null : channel
+                      )
+                    }
+                  >
+                    <ChannelItem name={channel} type="voice" />
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity flex space-x-2">
+                      <button
+                        className="text-gray-400 hover:text-white"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          alert(`Send message to ${channel}`);
+                        }}
+                      >
+                        💬
+                      </button>
+                      <button
+                        className="text-gray-400 hover:text-white"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          alert(`Invite to ${channel}`);
+                        }}
+                      >
+                        👤
+                      </button>
+                    </div>
                   </div>
-                </button>
+                </Link>
 
                 {/* SidebarItem: 선택된 음성 채널에만 표시 */}
                 {selectedVoiceChannel === channel && (
-                  <div className="p-0 h-[10%] w-[80%] max-w-sm mx-auto">
-                    <SidebarItem icon="/nitro.png" label="홍길동"
-                    />
+                  <div className="mt-2">
+                    <SidebarItem icon="/nitro.png" label="홍길동" />
                   </div>
                 )}
               </div>
