@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link"; // next/link 임포트
 import DropdownMenu from "@/components/header-comps/Dropdown";
 import CollapsibleSection from "@/components/channel-list-comps/Channel";
 import ChannelItem from "./ChannelItem";
 import SidebarItem from "./SidebarSection";
+import { usePathname } from "next/navigation";
+
 
 export default function Sidebar({ title }) {
   const [selectedVoiceChannel, setSelectedVoiceChannel] = useState(null);
@@ -25,6 +27,16 @@ export default function Sidebar({ title }) {
 
   const chatChannels = ["일반"];
   const voiceChannels = ["일반"];
+  const [isVoiceChannelOpen, setIsVoiceChannelOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log("Current pathname:", pathname); // 디버그용
+    if (pathname === "/voice-channel") {
+      setIsVoiceChannelOpen(true); // voice-channel로 이동 시 열림
+    }
+  }, [pathname]);
 
   return (
     <div>
@@ -65,7 +77,8 @@ export default function Sidebar({ title }) {
 
       {/* 음성 채널 섹션 */}
       <div className="mb-4">
-        <CollapsibleSection title="음성 채널">
+        <CollapsibleSection title="음성 채널" isOpen={isVoiceChannelOpen} // 상태값 전달
+        setIsOpen={setIsVoiceChannelOpen}>
           <ul className="space-y-2">
             {voiceChannels.map((channel, index) => (
               <div key={index}>
