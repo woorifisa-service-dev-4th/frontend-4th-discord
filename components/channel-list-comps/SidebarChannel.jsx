@@ -28,6 +28,7 @@ export default function Sidebar({ title }) {
   const chatChannels = ["일반"];
   const voiceChannels = ["일반"];
   const [isVoiceChannelOpen, setIsVoiceChannelOpen] = useState(false);
+  
 
   const pathname = usePathname();
 
@@ -35,6 +36,7 @@ export default function Sidebar({ title }) {
     console.log("Current pathname:", pathname); // 디버그용
     if (pathname === "/voice-channel") {
       setIsVoiceChannelOpen(true); // voice-channel로 이동 시 열림
+      setSelectedVoiceChannel("일반");
     }
   }, [pathname]);
 
@@ -117,8 +119,8 @@ export default function Sidebar({ title }) {
                 </Link>
 
                 {/* SidebarItem: 선택된 음성 채널에만 표시 */}
-                {selectedVoiceChannel === channel && (
-                  <div className="mt-2">
+                {pathname === "/voice-channel" && selectedVoiceChannel === channel && (
+                <div className="mt-2">
                     <SidebarItem icon="/nitro.png" label="홍길동" />
                   </div>
                 )}
