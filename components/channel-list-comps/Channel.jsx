@@ -1,6 +1,9 @@
 'use client';
 
 const CollapsibleSection = ({ title, children, isOpen, setIsOpen }) => {
+
+  console.log(isOpen);
+  
   return (
     <div>
       {/* 헤더 영역 */}

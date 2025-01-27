@@ -28,6 +28,7 @@ export default function Sidebar({ title }) {
   const chatChannels = ["일반"];
   const voiceChannels = ["일반"];
   const [isVoiceChannelOpen, setIsVoiceChannelOpen] = useState(false);
+  const [isChatChannelOpen, setIsChatChannelOpen] = useState(false);
   
 
   const pathname = usePathname();
@@ -52,7 +53,7 @@ export default function Sidebar({ title }) {
 
       {/* 채팅 채널 섹션 */}
       <div className="mb-4 mt-2">
-        <CollapsibleSection title="채팅 채널">
+        <CollapsibleSection title="채팅 채널" isOpen={isChatChannelOpen}  setIsOpen={setIsChatChannelOpen}>
           <ul className="space-y-2">
             {chatChannels.map((channel, index) => (
               <div
