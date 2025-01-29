@@ -10,27 +10,28 @@ import UserProfileBar from "@/components/channel-list-comps/UserBar";
 export default function ChannelPage() {
     const title = "WORRI-FISA" //임시 데이터
     return (
-        <div className="flex flex-1 relative">
-            <ChannelBar>
-                <Sidebar 
-                    title = {title}
-                />
-
-
-            {/* VoiceChannelConnected: 음성 채널 정보 */}
+        <div className="flex flex-1 ">
             
-            <div className="mt-auto">
-            {/* UserProfileBar: 유저 프로필 */}
-            <UserProfileBar
-                imageUrl="/assets/discord_blue.png"
-                stateIcon="/assets/status-online.svg"
-                username="이원빈"
-                statusMessage="온라인"
-            />
+            <div className="flex w-60"> 
+                <ChannelBar>
+                    <Sidebar
+                        title = {title}
+                    />
+                {/* VoiceChannelConnected: 음성 채널 정보 */}
+                
+                <div className="mt-auto">
+                {/* UserProfileBar: 유저 프로필 */}
+                <UserProfileBar
+                    imageUrl="/assets/discord_blue.png"
+                    stateIcon="/assets/status-online.svg"
+                    username="이원빈"
+                    statusMessage="온라인"
+                />
+                </div>
+
+                </ChannelBar>
             </div>
 
-
-            </ChannelBar>
             <ContentUi>
                 {/*Second Header*/}
                 <ContentTabUi>
