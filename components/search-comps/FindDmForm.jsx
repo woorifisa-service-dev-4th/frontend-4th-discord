@@ -2,7 +2,7 @@
 
 export function FindDmForm() {
     return (
-        <div className={"relative top-0 z-5"}>
+        <div className={"relative top-0"}>
             <input
                 className={"absolute bg-[#1e1f22] text-[#8f969f] text-sm  rounded-md py-1 px-2 w-full focus:outline-none"}
                 type="text"
