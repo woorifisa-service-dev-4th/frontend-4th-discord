@@ -7,23 +7,26 @@ import CollapsibleSection from "@/components/channel-list-comps/Channel";
 import ChannelItem from "./ChannelItem";
 import SidebarItem from "./SidebarSection";
 import { usePathname } from "next/navigation";
+import { FaRocket, FaUserPlus, FaCog, FaCalendarAlt, FaFolder, FaBell, FaShieldAlt, FaEdit, FaEyeSlash, FaDoorOpen } from "react-icons/fa";
 
 
 export default function Sidebar({ title }) {
   const [selectedVoiceChannel, setSelectedVoiceChannel] = useState(null);
 
+
   const menuItems = [
-    { label: "서버 부스트", icon: "🔗", onClick: () => alert("서버 부스트 클릭") },
-    { label: "초대하기", icon: "👤", onClick: () => alert("초대하기 클릭") },
-    { label: "서버 설정", icon: "⚙️", onClick: () => alert("서버 설정 클릭") },
-    { label: "이벤트 만들기", icon: "📅", onClick: () => alert("이벤트 만들기 클릭") },
-    { label: "App 디렉터리", icon: "📂", onClick: () => alert("App 디렉터리 클릭") },
-    { label: "알림 설정", icon: "🔔", onClick: () => alert("알림 설정 클릭") },
-    { label: "개인정보 보호 설정", icon: "🛡️", onClick: () => alert("개인정보 보호 설정 클릭") },
-    { label: "서버 프로필 편집", icon: "✏️", onClick: () => alert("서버 프로필 편집 클릭") },
-    { label: "알림 끈 채널 숨기기", icon: "📪", onClick: () => alert("알림 끈 채널 숨기기 클릭") },
-    { label: "서버 나가기", icon: "🚪", danger: true, onClick: () => alert("서버 나가기 클릭") },
+    { label: "서버 부스트", icon: <FaRocket />, onClick: () => alert("서버 부스트 클릭") },
+    { label: "초대하기", icon: <FaUserPlus />, onClick: () => alert("초대하기 클릭") },
+    { label: "서버 설정", icon: <FaCog />, onClick: () => alert("서버 설정 클릭") },
+    { label: "이벤트 만들기", icon: <FaCalendarAlt />, onClick: () => alert("이벤트 만들기 클릭") },
+    { label: "App 디렉터리", icon: <FaFolder />, onClick: () => alert("App 디렉터리 클릭") },
+    { label: "알림 설정", icon: <FaBell />, onClick: () => alert("알림 설정 클릭") },
+    { label: "개인정보 보호 설정", icon: <FaShieldAlt />, onClick: () => alert("개인정보 보호 설정 클릭") },
+    { label: "서버 프로필 편집", icon: <FaEdit />, onClick: () => alert("서버 프로필 편집 클릭") },
+    { label: "알림 끈 채널 숨기기", icon: <FaEyeSlash />, onClick: () => alert("알림 끈 채널 숨기기 클릭") },
+    { label: "서버 나가기", icon: <FaDoorOpen />, danger: true, onClick: () => alert("서버 나가기 클릭") },
   ];
+  
 
   const chatChannels = ["일반"];
   const voiceChannels = ["일반"];
@@ -34,7 +37,6 @@ export default function Sidebar({ title }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    console.log("Current pathname:", pathname); // 디버그용
     if (pathname === "/voice-channel") {
       setIsVoiceChannelOpen(true); // voice-channel로 이동 시 열림
       setSelectedVoiceChannel("일반");

@@ -29,9 +29,15 @@ const DropdownMenu = ({ title, menuItems }) => {
       >
         <span className="text-sm font-medium">{title}</span>
         <span className="ml-2 text-lg">
-          {isOpen ? (
-            '✖'
-          ) : (
+          {isOpen ? 
+            <Image
+            src="/x.png"
+            alt="X"
+            width={16}
+            height={16}
+          />
+          
+          : (
             <Image
               src="/downarrow.png"
               alt="Down Arrow"

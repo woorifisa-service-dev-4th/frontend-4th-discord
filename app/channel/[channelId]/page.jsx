@@ -24,9 +24,9 @@ export default function ChannelPage() {
                 <UserProfileBar
                     imageUrl="/assets/discord_blue.png"
                     stateIcon="/assets/status-online.svg"
-                    username="이원빈"
+                    username="홍길동"
                     statusMessage="온라인"
-                />
+                />  
                 </div>
 
                 </ChannelBar>
