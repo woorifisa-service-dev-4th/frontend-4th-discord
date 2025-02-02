@@ -105,7 +105,7 @@ export default function DirectMessagePage({ selectedUser }) {
 
                 {/* 🏷 툴팁 (첫 번째 메시지에는 표시하지 않음) */}
                 {hoveredMessageIndex === index && showTooltip && (
-                  <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded-md shadow-md whitespace-nowrap z-50">
+                  <div className="absolute left-[-35px] top-1/2 -translate-y-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded-md shadow-md whitespace-nowrap z-50">
                     {msg.time}
                   </div>
                 )}
