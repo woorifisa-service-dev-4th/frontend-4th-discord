@@ -10,6 +10,7 @@ import GDiscord from "@/public/assets/discord_green.png";
 import offline from "@/public/assets/status-offline.svg";
 import DirectMessagePage from "./page";
 import DmOverlay from "@/components/dm-comps/OverlayForm"; // ✅ DmOverlay 추가
+import userIcon from "@/public/assets/user-btn-icon.png";
 
 export default function MainLayout({  }) {
   const [selectedUser, setSelectedUser] = useState(null); // 🔹 선택된 유저 상태 추가
@@ -73,14 +74,13 @@ export default function MainLayout({  }) {
       <section className="flex flex-col w-full overflow-visible">
         <div className="h-12 flex items-center px-4 space-x-4 border-b border-black">
           <button 
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            className="bg-transparent text-white rounded-md"
             onClick={() => setIsOverlayOpen(!isOverlayOpen)}
           >
-            {isOverlayOpen ? "닫기" : "프로필 보기"}
+            {isOverlayOpen ? <Image src={userIcon} alt="닫기" width={40} height={40}></Image>: <Image src={userIcon} alt="열기" width={40} height={40}></Image>}
           </button>
         </div>
 
-        {/* 🔹 채팅창 영역 */}
         <div className="flex flex-1 p-9">
           {selectedUser ? (
             <DirectMessagePage selectedUser={selectedUser} />
@@ -92,7 +92,6 @@ export default function MainLayout({  }) {
         </div>
       </section>
 
-      {/* 🔹 DmOverlay (우측 창) */}
       {isOverlayOpen && selectedUser && (
         <DmOverlay 
           imgUrl={selectedUser.image} 
