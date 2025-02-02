@@ -10,6 +10,7 @@ import {ContentUi} from "@/ui/contentUi";
 import {ContentTabUi} from "@/ui/contentTabUi";
 import {Content} from "@/ui/content";
 import UserProfileBar from "@/components/channel-list-comps/UserBar";
+import {FrenidsEmpty} from "@/components/frenidsEmpty";
 
 export default function Home() {
     return (
@@ -49,7 +50,9 @@ export default function Home() {
                     </TabBar>
                 </ContentTabUi>
                 <Content>
-                    main페이지 : 친구들 보여주기
+                    <div className={"flex flex-1 justify-center items-center mx-12"}>
+                        <FrenidsEmpty src={"/assets/empty-friends-background.svg"} alt={"현재 접속중인 친구가 없어요 ..."} w={421} h={218}/>
+                    </div>
                 </Content>
 
             </ContentUi>
