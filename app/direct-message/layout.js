@@ -11,6 +11,7 @@ import offline from "@/public/assets/status-offline.svg";
 import DirectMessagePage from "./page";
 import DmOverlay from "@/components/dm-comps/OverlayForm"; // ✅ DmOverlay 추가
 import userIcon from "@/public/assets/user-btn-icon.png";
+import UserProfileBar from "@/components/channel-list-comps/UserBar";
 
 export default function MainLayout({  }) {
   const [selectedUser, setSelectedUser] = useState(null); // 🔹 선택된 유저 상태 추가
@@ -67,7 +68,17 @@ export default function MainLayout({  }) {
               />
             ))}
           </div>
+          <div className="mt-auto">
+                {/* UserProfileBar: 유저 프로필 */}
+                <UserProfileBar
+                    imageUrl="/assets/discord_blue.png"
+                    stateIcon="/assets/status-online.svg"
+                    username="홍길동"
+                    statusMessage="온라인"
+                />
+                </div>
         </aside>
+        
       </div>
 
       {/* 🔹 상단 버튼 추가 (우측 창 열기) */}
