@@ -8,12 +8,6 @@ import { IoIosSquareOutline } from "react-icons/io";
 import SideBar from "@/ui/siderBar";
 import {sideBarData} from "@/db/initData";
 import ServerIconButton from "@/components/sever-list-comps/serverIconButton";
-import {SearchFrom} from "@/components/search-comps/SearchForm";
-import SidebarItem from "@/components/channel-list-comps/SidebarSection";
-import Image from "next/image";
-import {RxDividerVertical} from "react-icons/rx";
-import {TabBar} from "@/ui/tabBar";
-import TabItem from "@/components/channel-list-comps/TabItem";
 export default function RootLayout({ children }) {
     function a(){
         console.log("cc");

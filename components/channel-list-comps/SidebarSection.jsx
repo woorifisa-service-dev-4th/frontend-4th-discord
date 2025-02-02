@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 
 const SidebarItem = ({ icon, label, isActive, href }) => {
@@ -11,8 +10,14 @@ const SidebarItem = ({ icon, label, isActive, href }) => {
             : 'bg-[#2b2d31] text-gray-300 hover:bg-discordGray hover:text-white'
         }`}
       >
-        <Image src={icon} alt={label} width={24} height={24} />
-        <span className="ml-4 text-sm">{label}</span>
+        <Image
+           src={icon}
+           alt="User Avatar"
+           width={24}
+           height={24}
+           className="rounded-full ml-2"
+         />
+        <span className="ml-3 text-sm">{label}</span>
       </div>
 
   );

@@ -9,6 +9,7 @@ import {ChannelBar} from "@/ui/channelBar";
 import {ContentUi} from "@/ui/contentUi";
 import {ContentTabUi} from "@/ui/contentTabUi";
 import {Content} from "@/ui/content";
+import UserProfileBar from "@/components/channel-list-comps/UserBar";
 
 export default function Home() {
     return (
@@ -20,6 +21,16 @@ export default function Home() {
                     <SidebarItem icon={"/nitro.png"} label={"Nitro"} isActive={false}/>
                     <SidebarItem icon={"/shop.png"} label={"상점"} isActive={false}/>
                 </SideBar>
+
+                <div className="mt-auto">
+                {/* UserProfileBar: 유저 프로필 */}
+                <UserProfileBar
+                    imageUrl="/assets/discord_blue.png"
+                    stateIcon="/assets/status-online.svg"
+                    username="홍길동"
+                    statusMessage="온라인"
+                />  
+                </div>
             </ChannelBar>
             <ContentUi>
                 {/*Second Header*/}
