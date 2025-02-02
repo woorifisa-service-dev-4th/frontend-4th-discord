@@ -10,7 +10,6 @@ export default function DirectMessagePage({ selectedUser }) {
   const [messages, setMessages] = useState([]);
   const [hoveredMessageIndex, setHoveredMessageIndex] = useState(null);
 
-  // "손 흔들기" 버튼 클릭 이벤트 (처음 인사하는 기능)
   const handleWaveClick = () => {
     setMessages((prev) => [
       ...prev,

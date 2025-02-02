@@ -22,7 +22,7 @@ export default function DmOverlay({ imgUrl, state, name , nickname }) {
         <p className='text-sm font-thin'>{tmpDate}</p>
       </div>
 
-      <div className="absolute w-full bottom-10 mb-9">
+      <div className="absolute w-full bottom-0 mb-9">
         <button className="bg-[#303136] text-[#8f969f] font-semibold py-3 w-full hover:text-white transition-all duration-200">
           전체 프로필 보기
         </button>
