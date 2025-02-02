@@ -3,10 +3,19 @@
 import UserProfileCard from  "../../components/voice-channel-comps/UserProfileCard"
 import FooterControls from "../../components/voice-channel-comps/FooterControls";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function VoiceChannelPage() {
   const [isStreaming, setIsStreaming] = useState(false); // 카메라 상태
   const [isMuted, setIsMuted] = useState(true); // 마이크 상태
+
+  const router = useRouter();
+
+  // 연결 끊기 핸들러
+  const handleDisconnect = () => {
+    alert("연결을 끊었습니다."); // 경고창 표시
+    router.push("/channel/123"); // URL 이동
+  };
 
   const users = [
     {
@@ -39,6 +48,8 @@ export default function VoiceChannelPage() {
   const totalRows = Math.ceil(users.length / 2); // 2개씩 한 줄
   const heightPerRow = 100 / Math.max(totalRows, 1); // 전체 화면 기준 줄별 높이
 
+  
+
 
   return (
     <main className="flex-1 flex">
@@ -67,7 +78,7 @@ export default function VoiceChannelPage() {
             }} // 카메라 상태 변경
             onToggleMuted={() => {setIsMuted(!isMuted); console.log(isMuted);
             }} // 마이크 상태 변경
-            onDisconnect={() => alert("연결을 끊었습니다.")} // 연결 끊기
+            onDisconnect={handleDisconnect} // 연결 끊기
           />
           
       </div>

@@ -4,26 +4,42 @@ import {ContentUi} from "@/ui/contentUi";
 import {ContentTabUi} from "@/ui/contentTabUi";
 import {Content} from "@/ui/content";
 import {MessageForm} from "@/components/search-comps/MessageForm";
+import Sidebar from "@/components/channel-list-comps/SidebarChannel";
+import UserProfileBar from "@/components/channel-list-comps/UserBar";
 
 export default function ChannelPage() {
+    const title = "WORRI-FISA" //임시 데이터
     return (
-        <div className="flex flex-1 relative">
-            <ChannelBar>
-                <div>채널이름</div>
+        <div className="flex flex-1 ">
+            
+            <div className="flex w-60"> 
+                <ChannelBar>
+                    <Sidebar
+                        title = {title}
+                    />
+                {/* VoiceChannelConnected: 음성 채널 정보 */}
                 
-                <SideBar>
-                    <div>채널 1</div>
-                    <div>채널 2</div>
-                    <div>채널 3</div>
-                </SideBar>
-            </ChannelBar>
+                <div className="mt-auto">
+                {/* UserProfileBar: 유저 프로필 */}
+                <UserProfileBar
+                    imageUrl="/assets/discord_blue.png"
+                    stateIcon="/assets/status-online.svg"
+                    username="홍길동"
+                    statusMessage="온라인"
+                />  
+                </div>
+
+                </ChannelBar>
+            </div>
+
             <ContentUi>
                 {/*Second Header*/}
                 <ContentTabUi>
                     <div className={"flex"}>
-                        # 채널이름
+                        {title}
                     </div>
                 </ContentTabUi>
+                
                 <Content>
                     channel 페이지 : 채널에서 채팅 친 내용
                 </Content>
@@ -31,6 +47,8 @@ export default function ChannelPage() {
                 {/*     Chat Area + Footer*/}
 
             </ContentUi>
+
+            
         </div>
     );
   }
