@@ -124,7 +124,7 @@ export default function Sidebar({ title }) {
                 {/* SidebarItem: 선택된 음성 채널에만 표시 */}
                 {pathname === "/voice-channel" && selectedVoiceChannel === channel && (
                 <div className="mt-2">
-                    <SidebarItem icon="/nitro.png" label="홍길동" />
+                    <SidebarItem icon="/assets/discord_blue.png" label="홍길동" />
                   </div>
                 )}
               </div>
