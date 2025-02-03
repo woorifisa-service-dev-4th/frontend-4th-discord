@@ -34,7 +34,7 @@ export default function MainLayout({  }) {
   return (
     <div className="flex flex-1 overflow-visible relative">
       <div className="flex">
-        <aside className="w-16 bg-[#202225] flex flex-col items-center py-4 space-y-4"></aside>
+        
         <aside className="w-60 bg-[#2b2d31] flex flex-col py-3 px-1 z-10">
           <FindDmForm />
           <SideBar>

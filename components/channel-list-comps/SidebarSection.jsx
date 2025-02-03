@@ -1,14 +1,18 @@
+'use client'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
 
 const SidebarItem = ({ icon, label, isActive, href }) => {
+  const router = useRouter();
   return (
-
       <div
         className={`flex items-center p-2 rounded-md cursor-pointer min-w-[160px] ${
           isActive
             ? 'bg-gray-600 text-white'
             : 'bg-[#2b2d31] text-gray-300 hover:bg-discordGray hover:text-white'
         }`}
+        onClick={() => router.push(href)}
       >
         <Image
            src={icon}
