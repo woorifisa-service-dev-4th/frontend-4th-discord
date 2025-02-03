@@ -12,13 +12,16 @@ import {Content} from "@/ui/content";
 import UserProfileBar from "@/components/channel-list-comps/UserBar";
 import {FrenidsEmpty} from "@/components/frenidsEmpty";
 
+
+
+
 export default function Home() {
     return (
         <div className="flex flex-1">
             <ChannelBar>
                 <SearchFrom defaultValue={"대화 찾기"}/>
                 <SideBar>
-                    <SidebarItem icon={"/friend.png"} label={"친구"} isActive={false}/>
+                    <SidebarItem icon={"/friend.png"} label={"친구"} isActive={false} href={'/direct-message'}/>
                     <SidebarItem icon={"/nitro.png"} label={"Nitro"} isActive={false}/>
                     <SidebarItem icon={"/shop.png"} label={"상점"} isActive={false}/>
                 </SideBar>
