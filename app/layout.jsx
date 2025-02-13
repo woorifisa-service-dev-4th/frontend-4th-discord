@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
-        <body className="flex w-screen h-screen bg-discordDark text-white">
+        <body className="flex w-screen h-screen bg-discordDark text-white overflow-y-hidden">
         {/*맨 왼쪽 sideBar 구간*/}
-        <div className="flex h-full w-[72px] bg-discordSidebar">
+        <div className="flex h-full w-[72px] bg-discordSidebar overflow-y-auto custom-scrollbar">
             {/*맨왼쪽 sideUi*/}
             <SideUi>
                 <div>
