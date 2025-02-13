@@ -12,7 +12,6 @@ const SidebarItem = ({ icon, label, isActive, href }) => {
             ? 'bg-gray-600 text-white'
             : 'bg-[#2b2d31] text-gray-300 hover:bg-discordGray hover:text-white'
         }`}
-        onClick={() => router.push(href)}
       >
         <Image
            src={icon}

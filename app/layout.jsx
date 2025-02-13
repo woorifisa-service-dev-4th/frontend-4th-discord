@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             </HeaderBar>
         </header>
         {/* [dmId] layout */}
-
+    
         <div className="flex flex-1">
             {/*<div className="flex">*/}
                 {/* Server List */}

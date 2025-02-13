@@ -5,7 +5,7 @@ import greyImg from "@/public/assets/discord_grey.png";
 export default function DmUserList({ id, name, imageUrl, state, isSelected, onSelect, onDelete }) {
 
   return (
-    <div
+    <li
       className={`flex items-center p-1 rounded-md cursor-pointer transition-colors relative group
         ${isSelected ? "bg-gray-600" : "hover:bg-gray-700"}`}
       onClick={onSelect} // 🔹 클릭 시 선택된 유저 변경
@@ -24,6 +24,6 @@ export default function DmUserList({ id, name, imageUrl, state, isSelected, onSe
       >
         ✖
       </button>
-    </div>
+    </li>
   );
 }
