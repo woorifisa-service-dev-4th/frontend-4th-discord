@@ -6,7 +6,6 @@ import {ToolBar} from "@/components/toolBar";
 import SidebarItem from "@/components/channel-list-comps/SidebarSection";
 
 import UserProfileBar from "@/components/userProfileBar";
-import {SectionTwo} from "@/ui/sectionTwo";
 import {SectionTwoAndThree} from "@/ui/sectionTwoAndThree";
 import SectionThree from "@/ui/sectionThree";
 import SectionOneAndFour from "@/ui/sectionOneAndFour";
@@ -15,6 +14,7 @@ import SectionFour from "@/ui/sectionFour";
 import UserProfileBarUi from "@/ui/userProfileBarUi";
 import SectionThreeMain from "@/components/sectionThreeMain";
 import SectionFourMain from "@/components/SectionFourMain";
+import SectionTwo from "@/ui/sectionTwo";
 
 
 export default function Home() {
