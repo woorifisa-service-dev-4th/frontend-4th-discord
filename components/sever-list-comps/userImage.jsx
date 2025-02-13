@@ -4,20 +4,18 @@ export default function UserImage({imageUrl,state,size}) {
   const urlDimension = size === "big" ? 20 : size === "mid" ?  10: 8;
   const stateDimension = size === "big" ? 6 : size === "mid" ?  4: 1;
   const location = size === "big"?1 :0;
-  const padding = size ==="small"? 2:2;
+  const width = size ==='big'?80 :64;
   return (
-    <div className={`relative w-${urlDimension} h-${urlDimension}`}>
-    
+    <div className={`relative w-${urlDimension} h-${urlDimension} bg-transparent rounded-full`}>
       <Image
         src={imageUrl}
         alt="User Image"
-        className="rounded-full"
-        layout="fill"
+        className="rounded-full p-1"
+        width={width}
+        height={width}
         objectFit="cover"
       />
-
-      {/* 상태 이미지 */}
-      <div className={`absolute bottom-${location} right-${location} w-${stateDimension} h-${stateDimension} bg-discordDark p-${padding} rounded-full`}>
+      <div className={`absolute bottom-1 right-1 translate-x-1 translate-y-1 w-${stateDimension} h-${stateDimension} bg-[#232428] p-2 rounded-full`}>
         <Image
           src={state}
           alt="State Icon"

@@ -1,8 +1,16 @@
 'use client'
+
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ServerIconButton({ imageUrl, name}) {
   const [showTooltip, setToolTip] = useState(false);
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/channel/${name}`);
+  }
+
   return (
     <div className="relative pt-3">
       <button
@@ -11,6 +19,7 @@ export default function ServerIconButton({ imageUrl, name}) {
         `}
         onMouseEnter={() => setToolTip(true)} 
         onMouseLeave={() => setToolTip(false)} 
+        onClick={handleClick}
       >
         {imageUrl ? (
           <img

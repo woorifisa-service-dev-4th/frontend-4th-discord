@@ -4,6 +4,7 @@ import {SectionTwoMain} from "@/components/search-comps/sectionTwoMain";
 import {TabBarComp} from "@/components/tabBarComp";
 import {ToolBar} from "@/components/toolBar";
 import SidebarItem from "@/components/channel-list-comps/SidebarSection";
+
 import UserProfileBar from "@/components/userProfileBar";
 import {SectionTwo} from "@/ui/sectionTwo";
 import {SectionTwoAndThree} from "@/ui/sectionTwoAndThree";
@@ -18,6 +19,7 @@ import SectionFourMain from "@/components/SectionFourMain";
 
 export default function Home() {
     return (
+
         <div className={"flex flex-1"}>
             {/*sections 2,3*/}
             <SectionTwoAndThree>
@@ -52,7 +54,8 @@ export default function Home() {
                 </SectionFour>
             </SectionOneAndFour>
 
-
+      
+                
         </div>
     );
 }
