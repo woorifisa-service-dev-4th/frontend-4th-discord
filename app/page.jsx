@@ -1,47 +1,58 @@
 import Image from "next/image";
-import {SearchFrom} from "@/components/search-comps/SearchForm";
-import SideBar from "@/ui/siderBar";
+
+import {SectionTwoMain} from "@/components/search-comps/sectionTwoMain";
+import {TabBarComp} from "@/components/tabBarComp";
+import {ToolBar} from "@/components/toolBar";
 import SidebarItem from "@/components/channel-list-comps/SidebarSection";
-import {RxDividerVertical} from "react-icons/rx";
-import {TabBar} from "@/ui/tabBar";
-import TabItem from "@/components/channel-list-comps/TabItem";
-import {ChannelBar} from "@/ui/channelBar";
-import {ContentUi} from "@/ui/contentUi";
-import {ContentTabUi} from "@/ui/contentTabUi";
-import {Content} from "@/ui/content";
+import UserProfileBar from "@/components/userProfileBar";
+import {SectionTwo} from "@/ui/sectionTwo";
+import {SectionTwoAndThree} from "@/ui/sectionTwoAndThree";
+import SectionThree from "@/ui/sectionThree";
+import SectionOneAndFour from "@/ui/sectionOneAndFour";
+import SectionOne from "@/ui/sectionOne";
+import SectionFour from "@/ui/sectionFour";
+import UserProfileBarUi from "@/ui/userProfileBarUi";
+import SectionThreeMain from "@/components/sectionThreeMain";
+import SectionFourMain from "@/components/SectionFourMain";
+
 
 export default function Home() {
     return (
-        <div className="flex flex-1">
-            <ChannelBar>
-                <SearchFrom defaultValue={"대화 찾기"}/>
-                <SideBar>
-                    <SidebarItem icon={"/friend.png"} label={"친구"} isActive={false}/>
-                    <SidebarItem icon={"/nitro.png"} label={"Nitro"} isActive={false}/>
-                    <SidebarItem icon={"/shop.png"} label={"상점"} isActive={false}/>
-                </SideBar>
-            </ChannelBar>
-            <ContentUi>
-                {/*Second Header*/}
-                <ContentTabUi>
-                    <div className={"flex"}>
-                        <Image src={"/friend.png"} alt={"친구"} width={20} height={30}/>
-                        <span className={"text-sm pl-3 mt-[2px]"}>친구</span>
-                        <RxDividerVertical size={25} color={"gray"} className={"ml-2"}/>
-                    </div>
-                    <TabBar>
-                        <TabItem label={"온라인"} isActive={false}/>
-                        <TabItem label={"모두"} isActive={false}/>
-                        <TabItem label={"대기중"} isActive={false}/>
-                        <TabItem label={"추천"} isActive={false}/>
-                        <TabItem label={"차단 목록"} isActive={false}/>
-                    </TabBar>
-                </ContentTabUi>
-                <Content>
-                    main페이지 : 친구들 보여주기
-                </Content>
+        <div className={"flex flex-1"}>
+            {/*sections 2,3*/}
+            <SectionTwoAndThree>
+                {/*section 2*/}
+                <SectionTwo>
+                    <SectionTwoMain/>
+                </SectionTwo>
+                {/*section 3*/}
+                <SectionThree>
+                    <SectionThreeMain/>
+                </SectionThree>
+                {/*고정 userProfileBar*/}
+                <UserProfileBarUi>
+                    <UserProfileBar
+                        imageUrl="/assets/discord_blue.png"
+                        stateIcon="/assets/status-online.svg"
+                        username="이원빈"
+                        statusMessage="온라인"
+                    />
+                </UserProfileBarUi>
+            </SectionTwoAndThree>
+            {/*sections 1,4*/}
+            <SectionOneAndFour>
+                {/*section 1*/}
+                <SectionOne>
+                    <TabBarComp/>
+                    <ToolBar/>
+                </SectionOne>
+                {/*section 4*/}
+                <SectionFour>
+                    <SectionFourMain/>
+                </SectionFour>
+            </SectionOneAndFour>
 
-            </ContentUi>
+
         </div>
     );
 }
