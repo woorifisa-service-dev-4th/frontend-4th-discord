@@ -7,10 +7,14 @@ const SidebarItem = ({ icon, label, isActive, href }) => {
   const router = useRouter();
   return (
       <div
-        className={`flex items-center p-2 rounded-md cursor-pointer min-w-[160px] ${
+        className={`flex items-center p-2 mt-1 rounded-md cursor-pointer min-w-[160px] ${
           isActive
             ? 'bg-gray-600 text-white'
-            : 'bg-[#2b2d31] text-gray-300 hover:bg-discordGray hover:text-white'
+
+            : 'bg-discord2and3 text-gray-300 hover:bg-gray-600 hover:text-white'
+
+            
+
         }`}
         onClick={() => router.push(href)}
       >

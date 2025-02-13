@@ -1,13 +1,10 @@
 "use client"
 
 import "./globals.css";
-import {HeaderBar} from "@/ui/headerBar";
-import { IoMdClose } from "react-icons/io";
-import { VscChromeMinimize } from "react-icons/vsc";
-import { IoIosSquareOutline } from "react-icons/io";
 import SideBar from "@/ui/siderBar";
 import {sideBarData} from "@/db/initData";
 import ServerIconButton from "@/components/sever-list-comps/serverIconButton";
+import {SideUi} from "@/ui/sideUi";
 export default function RootLayout({ children }) {
     function a(){
         console.log("cc");
@@ -15,30 +12,27 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
-        <body className="flex flex-col h-screen bg-discordDark text-white">
-        {/* Header */}
-        <header className="h-6 bg-discordSidebar flex  items-center justify-between">
-            <h1 className="text-sm font-extrabold text-gray-500 ml-3">Discord</h1>
-            <HeaderBar>
-                <VscChromeMinimize color="gray" size={20} className={"mr-2"}/>
-                <IoIosSquareOutline color="gray" size={20} className={"mr-2"}/>
-                <IoMdClose color="gray" size={20} onClick={a} className={"mr-2"}/>
-            </HeaderBar>
-        </header>
-        {/* [dmId] layout */}
-
-        <div className="flex flex-1">
-            {/*<div className="flex">*/}
-                {/* Server List */}
-                <aside className="w-16 bg-discordSidebar flex flex-col items-center py-4 space-y-4">
-                    <SideBar>
-                        {sideBarData.map((item, index) => (
-                            <ServerIconButton key={index} imageUrl={item.imageUrl} name={item.name}/>
-                        ))}
-                    </SideBar>
-                </aside>
-            {children}
+        <body className="flex w-screen h-screen bg-discordDark text-white">
+        {/*맨 왼쪽 sideBar 구간*/}
+        <div className="flex h-full w-[72px] bg-discordSidebar">
+            {/*맨왼쪽 sideUi*/}
+            <SideUi>
+                <div>
+                    <ServerIconButton
+                        key={0}
+                        imageUrl={"/assets/discord_blue.png"}
+                        name={"me"}
+                    />
+                </div>
+                <SideBar>
+                    {sideBarData.map((item, index) => (
+                        <ServerIconButton key={index} imageUrl={item.imageUrl} name={item.name}/>
+                    ))}
+                </SideBar>
+            </SideUi>
         </div>
+        {/*본문 내용 (1,2,3,4분면)*/}
+            {children}
         </body>
         </html>
     );
