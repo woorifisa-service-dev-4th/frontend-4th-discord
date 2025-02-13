@@ -12,7 +12,7 @@ export default function ServerIconButton({ imageUrl, name}) {
   }
 
   return (
-    <div className="relative pt-3">
+    <li className="relative pt-3">
       <button
         className={`w-11 h-11 rounded-full bg-discordDark flex items-center justify-center overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500 relative transition-all duration-300 ease-[cubic-bezier(0.25, 0.1, 0.25, 1)]
           ${imageUrl ? "hover:rounded-2xl" : "hover:rounded-2xl hover:bg-discordGreen"}
@@ -45,6 +45,6 @@ export default function ServerIconButton({ imageUrl, name}) {
           ></div>
         </div>
       )}
-    </div>
+    </li>
 );
 };
