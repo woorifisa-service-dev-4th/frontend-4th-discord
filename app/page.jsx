@@ -15,9 +15,12 @@ import UserProfileBarUi from "@/ui/userProfileBarUi";
 import SectionThreeMain from "@/components/sectionThreeMain";
 import SectionFourMain from "@/components/SectionFourMain";
 import SectionTwo from "@/ui/sectionTwo";
+import {Shoot} from "@/components/Shoot";
 
 
 export default function Home() {
+
+
     return (
 
         <div className={"flex flex-1"}>
@@ -50,6 +53,7 @@ export default function Home() {
                 </SectionOne>
                 {/*section 4*/}
                 <SectionFour>
+                    <Shoot />
                     <SectionFourMain/>
                 </SectionFour>
             </SectionOneAndFour>
