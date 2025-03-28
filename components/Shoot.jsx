@@ -11,7 +11,7 @@ export function Shoot() {
         console.log("입력값:", inputValue);
 
         try {
-            const response = await fetch("http://localhost:8080/hello", {
+            const response = await fetch("http://192.168.0.57/hello", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
